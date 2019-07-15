@@ -1,0 +1,4 @@
+---
+iptables::package: 'iptables-persistent'
+iptables::service: 'netfilter-persistent'
+iptables::firewall: 'ufw'

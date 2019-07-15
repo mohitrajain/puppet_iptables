@@ -1,0 +1,4 @@
+---
+iptables::package: 'iptables-services'
+iptables::service: 'iptables'
+iptables::firewall: 'firewalld'

@@ -4,11 +4,13 @@
 # @example
 #   include iptables
 
-class iptables (
-  $firewall = $iptables::params::params_firewall
-) inherits iptables::params {
+class iptables ( 
+  String $package,
+  String $service,
+  String $firewall,
+) {
 
-  service { "$firewall":
+  service { "${iptables::firewall}":
     ensure => stopped,
     enable => false
   }

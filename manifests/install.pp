@@ -3,17 +3,14 @@
 
 # @example
 #   include iptables::install
-class iptables::install (
-  $package = $iptables::params::params_package,
-  $service = $iptables::params::params_service,
-) inherits iptables::params {
+class iptables::install {
 
-  package { "$package":
+  package { "${iptables::package}":
     ensure => present
   }
 
   # enabling and running
-  service { "$service":
+  service { "$iptables::service":
     ensure => running,
     enable => true
   }
