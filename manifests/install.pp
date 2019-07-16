@@ -9,10 +9,4 @@ class iptables::install {
     ensure => present
   }
 
-  # enabling and running
-  service { "$iptables::service":
-    ensure => running,
-    enable => true
-  }
-
 }

@@ -1,5 +1,7 @@
 ---
+iptables::rules_file: '/etc/sysconfig/iptables.new'
 iptables::package: 'iptables-services'
 iptables::service: 'iptables'
 iptables::firewall: 'firewalld'
 iptables::savepath: '/etc/sysconfig/iptables'
+iptables::restart_cmd: 'systemctl restart iptables.service'

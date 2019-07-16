@@ -1,5 +1,7 @@
 ---
+iptables::rules_file: '/etc/iptables/rules.v4.new'
 iptables::package: 'iptables-persistent'
 iptables::service: 'netfilter-persistent'
 iptables::firewall: 'ufw'
 iptables::savepath: '/etc/iptables/rules.v4'
+iptables::restart_cmd: 'systemctl restart netfilter-persistent.service'
