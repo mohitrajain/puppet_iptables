@@ -2,3 +2,4 @@
 iptables::package: 'iptables-persistent'
 iptables::service: 'netfilter-persistent'
 iptables::firewall: 'ufw'
+iptables::savepath: '/etc/iptables/rules.v4'

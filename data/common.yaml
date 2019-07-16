@@ -1,1 +1,5 @@
 ---
+iptables::config_ensure: 'file'
+iptables::package: 'iptables-services'
+iptables::service: 'iptables'
+iptables::firewall: 'firewalld'

@@ -8,19 +8,18 @@ class iptables (
   String $package,
   String $service,
   String $firewall,
+  String $savepath,
+  String $config_ensure,
 ) {
 
-  service { "${iptables::firewall}":
-    ensure => stopped,
-    enable => false
-  }
+  contain iptables::preinstall
+  contain iptables::install
+  contain iptables::config
+  contain iptables::postinstall
 
-# installing iptables.service 
-  include iptables::install
+  Class['::iptables::preinstall']
+  -> Class['::iptables::config']
+  -> Class['::iptables::install']
+  -> Class['::iptables::postinstall']
 
-# inserting rule for port 80
-
-  exec { "iptables -t filter -I INPUT -p tcp --dport 80 -j ACCEPT":
-    path  => ['/usr/bin', '/usr/sbin',]
-  }
 }
