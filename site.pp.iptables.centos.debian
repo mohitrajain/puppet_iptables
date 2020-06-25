@@ -1,0 +1,12 @@
+node centos {
+  include iptables
+
+  iptables::rules { 'centos_rules':
+    keep_default => true,
+    rules_arr => ['-A INPUT -p tcp --dport 8080 -j ACCEPT'],  
+  }
+}
+node debiannode1.internal.directi.com {
+  include iptables
+
+}
